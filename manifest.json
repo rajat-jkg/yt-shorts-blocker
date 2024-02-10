@@ -9,11 +9,14 @@
 
     "content_scripts": [
         {
+          
           "js": ["index.js"],
+          "run_at": "document_end",
           "matches": [
             "https://youtube.com/*",
             "https://www.youtube.com/*"
           ]
+          
         }
       ]
 }

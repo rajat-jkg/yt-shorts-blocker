@@ -2,18 +2,35 @@ let shortsTab = document.getElementsByTagName('ytd-guide-entry-renderer')[1];
 let activeUrl = window.location.href;
 let inYoutube = activeUrl.includes('youtube');
 let isShorts = activeUrl.includes('shorts');
+//console log all variables with label to see if they are working
+console.log('activeUrl: ', activeUrl);
+console.log('inYoutube: ', inYoutube);
+console.log('isShorts: ', isShorts);
+console.log('shortsTab: ', shortsTab);
 
 function blockShorts(inYoutube, isShorts) {
   if (inYoutube && !isShorts) {
     try {
       console.log('Hiding shorts tab');
       shortsTab.style.display = 'none';
+      shortsTab.style.display = 'none';
       console.log('done hiding shorts tab');
     } catch (error) {
+      //try after 1 second
+      try {
+        setTimeout(() => {
+          shortsTab = document.getElementsByTagName('ytd-guide-entry-renderer')[1];
+          console.log('shortsTab: ', shortsTab);
+          shortsTab.style.display = 'none';
+        }, 1000);
+      } catch (error) {
+        console.log('An error occurred while trying to block the shorts tab. "YT shorts blocker"\nError: ' + error);
+      }
       console.log('An error occurred while trying to block the shorts tab. "YT shorts blocker"\nError: ' + error);
     }
     try {
       var shortsSuggestions = document.getElementsByTagName('ytd-rich-section-renderer');
+      console.log('shortsSuggestions: ', shortsSuggestions)
       console.log('Hiding shorts suggestions');
       for (let i = 0; i < shortsSuggestions.length; i++) {
         shortsSuggestions[i].style.display = 'none';
@@ -44,6 +61,7 @@ blockShorts(inYoutube, isShorts);
 document.querySelector('*').addEventListener('click', function () {
   setTimeout(() => {
     activeUrl = window.location.href;
+    console.log('activeUrl: ', activeUrl);
     inYoutube = activeUrl.includes('youtube');
     isShorts = activeUrl.includes('shorts');
     blockShorts(inYoutube, isShorts);
