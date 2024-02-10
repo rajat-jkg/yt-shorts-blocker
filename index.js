@@ -2,11 +2,7 @@ let shortsTab = document.getElementsByTagName('ytd-guide-entry-renderer')[1];
 let activeUrl = window.location.href;
 let inYoutube = activeUrl.includes('youtube');
 let isShorts = activeUrl.includes('shorts');
-if (!shortsTab) {
-  setTimeout(() => {
-    shortsTab = document.getElementsByTagName('ytd-guide-entry-renderer')[1];
-  }, 2000);
-}
+
 //console log all variables with label to see if they are working
 console.log('activeUrl: ', activeUrl);
 console.log('inYoutube: ', inYoutube);
@@ -16,8 +12,8 @@ console.log('shortsTab: ', shortsTab);
 function blockShorts(inYoutube, isShorts) {
   if (inYoutube && !isShorts) {
     try {
+      shortsTab = document.getElementsByTagName('ytd-guide-entry-renderer')[1];
       console.log('Hiding shorts tab');
-      shortsTab.style.display = 'none';
       shortsTab.style.display = 'none';
       console.log('done hiding shorts tab');
     } catch (error) {
