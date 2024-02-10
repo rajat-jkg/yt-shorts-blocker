@@ -54,12 +54,11 @@ function blockShorts(inYoutube, isShorts) {
 
 blockShorts(inYoutube, isShorts);
 
-document.querySelector('*').addEventListener('click', function () {
-  setTimeout(() => {
-    activeUrl = window.location.href;
-    console.log('activeUrl: ', activeUrl);
-    inYoutube = activeUrl.includes('youtube');
-    isShorts = activeUrl.includes('shorts');
-    blockShorts(inYoutube, isShorts);
-  }, 1000);
-});
+
+setInterval(() => {
+  activeUrl = window.location.href;
+  console.log('activeUrl: ', activeUrl);
+  inYoutube = activeUrl.includes('youtube');
+  isShorts = activeUrl.includes('shorts');
+  blockShorts(inYoutube, isShorts);
+}, 2000);
