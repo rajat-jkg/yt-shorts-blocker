@@ -1,0 +1,19 @@
+{
+    "manifest_version": 3,
+    "name": "YT Shorts Blocker",
+    "description": "This extension is here to help you prevent YouTube from showing you shorts.",
+    "version": "1.0",
+    "icons": {
+      "48": "icon.png"
+    },
+
+    "content_scripts": [
+        {
+          "js": ["index.js"],
+          "matches": [
+            "https://youtube.com/*",
+            "https://www.youtube.com/*"
+          ]
+        }
+      ]
+}
