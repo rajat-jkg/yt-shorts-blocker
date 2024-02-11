@@ -16,6 +16,14 @@ function blockShorts(inYoutube, isShorts) {
       console.log('Hiding shorts tab');
       shortsTab.style.display = 'none';
       console.log('done hiding shorts tab');
+    } catch (error) {      
+      console.log('An error occurred while trying to block the shorts tab. "YT shorts blocker"\nError: ' + error);
+    }
+    try {
+      shortsTabMini = document.getElementsByTagName('ytd-mini-guide-entry-renderer')[1];
+      console.log('Hiding shorts tab');
+      shortsTabMini.style.display = 'none';
+      console.log('done hiding shorts tab');
     } catch (error) {
       
       console.log('An error occurred while trying to block the shorts tab. "YT shorts blocker"\nError: ' + error);
